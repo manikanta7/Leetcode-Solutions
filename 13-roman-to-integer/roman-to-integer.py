@@ -10,10 +10,10 @@ class Solution:
             'D': 500,
             'M': 1000
         }
-        for i in range(0,len(s)-1,+1):
-            if roman[s[i]]<roman[s[i+1]]:
-                number -= roman[s[i]]
+        for i,j in zip(s,s[1:]):
+            if roman[i]<roman[j]:
+                number -= roman[i]
             else:
-                number += roman[s[i]]
+                number += roman[i]
         return number + roman[s[len(s)-1]]
         
