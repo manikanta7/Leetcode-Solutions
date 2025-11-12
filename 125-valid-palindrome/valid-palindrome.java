@@ -27,29 +27,26 @@ class Solution {
         // return true;
 
         //Using two pointers
-        if(s.isEmpty())
-        {
-            return true;
-        }
         int start =0;
         int end = s.length()-1;
         while(start<=end)
         {
             char c1=s.charAt(start);
             char c2=s.charAt(end);
+            if('A'<=c1 && c1<='Z') c1=(char)(c1+32);
+            if('A'<=c2 && c2<='Z') c2=(char)(c2+32);
 
-            while(!Character.isLetterOrDigit(s.charAt(start)) && start<end){
+            if(!(('a'<=c1 && c1<='z') || '0'<=c1 && c1<='9')) {
                 start++;
-                
+                continue;
             }
-            while(!Character.isLetterOrDigit(s.charAt(end)) && start<end) {
+            if(!(('a'<=c2 && c2<='z') || '0'<=c2 && c2<='9')) {
                 end--;
+                continue;
             }
-            if(Character.toLowerCase(s.charAt(start))!=Character.toLowerCase(s.charAt(end))) return false;
-            else{
-                start++;
-                end--;
-            }
+            if(c1!=c2) return false;
+            start++;
+            end--;
         }
         return true;
     }
