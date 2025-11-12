@@ -15,10 +15,40 @@ class Solution {
         // }
         // return true;
 
-        s = s.toLowerCase().replaceAll("[^a-z0-9]","");
-        for(int i =0;i<s.length()/2;i++){
-            if(s.charAt(i)!=s.charAt(s.length()-i-1)){
-                return false;
+        
+        // s = s.toLowerCase().replaceAll("[^a-z0-9]","");   // using predefined functions
+
+
+        // for(int i =0;i<s.length()/2;i++){
+        //     if(s.charAt(i)!=s.charAt(s.length()-i-1)){
+        //         return false;
+        //     }
+        // }
+        // return true;
+
+        //Using two pointers
+        if(s.isEmpty())
+        {
+            return true;
+        }
+        int start =0;
+        int end = s.length()-1;
+        while(start<=end)
+        {
+            char c1=s.charAt(start);
+            char c2=s.charAt(end);
+
+            while(!Character.isLetterOrDigit(s.charAt(start)) && start<end){
+                start++;
+                
+            }
+            while(!Character.isLetterOrDigit(s.charAt(end)) && start<end) {
+                end--;
+            }
+            if(Character.toLowerCase(s.charAt(start))!=Character.toLowerCase(s.charAt(end))) return false;
+            else{
+                start++;
+                end--;
             }
         }
         return true;
