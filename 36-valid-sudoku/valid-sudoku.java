@@ -1,18 +1,18 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        HashSet<Character>[] hashbox = new HashSet[9];
-        HashSet<Character>[] hashrow = new HashSet[9];
-        HashSet<Character>[] hashcolumn = new HashSet[9];
+        HashSet<Character>[] hashbox = new HashSet[board.length];
+        HashSet<Character>[] hashrow = new HashSet[board.length];
+        HashSet<Character>[] hashcolumn = new HashSet[board.length];
 
-        for(int i=0;i<9;i++){
+        for(int i=0;i<board.length;i++){
             hashrow[i] = new HashSet<>();
             hashcolumn[i] = new HashSet<>();
             hashbox[i] = new HashSet<>();
         }
 
-        for(int i=0;i<9;i++)
+        for(int i=0;i<board.length;i++)
         {
-            for(int j=0;j<9;j++)
+            for(int j=0;j<board.length;j++)
             {
                 if(board[i][j] == '.') continue;
 
