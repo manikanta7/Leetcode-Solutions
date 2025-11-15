@@ -10,9 +10,9 @@ class Solution {
             hashbox[i] = new HashSet<>();
         }
 
-        for(int i=0;i<board.length;i++)
+        for(int i=0;i<9;i++)
         {
-            for(int j=0;j<board.length;j++)
+            for(int j=0;j<9;j++)
             {
                 if(board[i][j] == '.') continue;
 
